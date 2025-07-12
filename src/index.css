@@ -1,0 +1,36 @@
+/* App.css */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ecf0f1;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Removed app-header and main-nav styles as they are now in Navbar.css */
+
+.app-content {
+  flex-grow: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column; /* Changed to column to stack Home and Users */
+  justify-content: center;
+  align-items: center; /* Center content horizontally */
+}
+
+.app-footer {
+  background-color: #34495e;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
