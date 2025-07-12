@@ -4,20 +4,22 @@ import Home from './home/Home'
 import Navbar from './navbar/Navbar'
 import About from './about/About'
 import Contact from './contact/Contact'
+import { Route, Routes } from 'react-router'
+import Layout from './Layout'
 
 const App = () => {
 	return (
 		<div className='app-wrapper'>
-			<Navbar /> {/* Render the Navbar component */}
+			<Navbar />
 			<main className='app-content'>
-				{/*
-          In a real application with routing, you would place your Routes here.
-          For this example, we'll just render Home and Users directly to show them.
-        */}
-				<Home />
-				<Users />
-        <About />
-        <Contact />
+				<Routes>
+					<Route element={<Layout />}>
+						<Route path='home' element={<Home />} />
+						<Route path='users' element={<Users />} />
+						<Route path='about' element={<About />} />
+						<Route path='contact' element={<Contact />} />
+					</Route>
+				</Routes>
 			</main>
 			<footer className='app-footer'>
 				<p>&copy; 2025 My Application</p>
