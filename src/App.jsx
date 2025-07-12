@@ -14,7 +14,8 @@ const App = () => {
 			<main className='app-content'>
 				<Routes>
 					<Route element={<Layout />}>
-						<Route path='home' element={<Home />} />
+						{/* index attribute is used to mrk the route as index route or the default route */}
+						<Route index element={<Home />} />
 						<Route path='users' element={<Users />} />
 						<Route path='about' element={<About />} />
 						<Route path='contact' element={<Contact />} />
