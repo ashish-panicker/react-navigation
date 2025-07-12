@@ -9,7 +9,7 @@ This article provides a comprehensive guide to utilizing React Router 7 for clie
 To begin, ensure you have a React project set up (e.g., using Vite or Create React App). Then, install React Router:
 
 ```bash
-npm install react-router-dom
+npm install react-router
 ````
 
 Next, integrate React Router into your application by wrapping your top-level component (typically **App.js**) with the `BrowserRouter` component. This provides the routing context to your entire application.
@@ -18,7 +18,7 @@ Next, integrate React Router into your application by wrapping your top-level co
 // src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
+import { BrowserRouter } from 'react-router'; // Import BrowserRouter
 import App from './App'; // Your main App component
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -44,7 +44,7 @@ The `Link` component is used to create navigation links that, when clicked, chan
 ```javascript
 // src/App.js
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router';
 
 // Dummy components for demonstration
 const Home = () => (
@@ -94,12 +94,12 @@ When you run this application, clicking "**Home**" or "**Users**" will update th
 
 Often, multiple routes will share a common layout (e.g., a header, footer, or sidebar). React Router provides "**Layout Routes**" to manage this efficiently, avoiding component duplication. Instead of rendering a `Layout` component for each `Route` individually, you define a parent `Route` with the `Layout` component and nest child `Route` components within it.
 
-The `Layout` component itself uses the `Outlet` component from `react-router-dom` to render the content of the currently matched child route.
+The `Layout` component itself uses the `Outlet` component from `react-router` to render the content of the currently matched child route.
 
 ```javascript
 // src/components/Layout.js
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
 
 const Layout = () => {
   return (
@@ -115,7 +115,7 @@ export default Layout;
 
 // src/App.js (updated)
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router';
 import Layout from './components/Layout'; // Import the Layout component
 
 // ... Home and Users components (as defined previously) ...
@@ -156,7 +156,7 @@ To visually indicate the currently active navigation link, use the **NavLink** c
 ```javascript
 // src/App.js (updated)
 import React from 'react';
-import { Routes, Route, NavLink, Outlet } from 'react-router-dom'; // Import NavLink and Outlet
+import { Routes, Route, NavLink, Outlet } from 'react-router'; // Import NavLink and Outlet
 import Layout from './components/Layout';
 
 // ... Home and Users components ...
@@ -203,7 +203,7 @@ An "**Index Route**" is used to define a default child route when a parent route
 ```javascript
 // src/App.js (updated)
 import React from 'react';
-import { Routes, Route, NavLink, Outlet } from 'react-router-dom';
+import { Routes, Route, NavLink, Outlet } from 'react-router';
 import Layout from './components/Layout';
 
 // ... Home and Users components ...
@@ -252,7 +252,7 @@ To handle cases where a user navigates to a URL that doesn't match any defined r
 ```javascript
 // src/components/NoMatch.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 const NoMatch = () => {
   return (
@@ -268,7 +268,7 @@ export default NoMatch;
 
 // src/App.js (updated)
 import React from 'react';
-import { Routes, Route, NavLink, Outlet } from 'react-router-dom';
+import { Routes, Route, NavLink, Outlet } from 'react-router';
 import Layout from './components/Layout';
 import NoMatch from './components/NoMatch'; // Import NoMatch component
 
@@ -308,7 +308,7 @@ Dynamic segments are defined using a colon (`:`) followed by a parameter name (e
 ```javascript
 // src/components/UserDetail.js
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router';
 
 const UserDetail = () => {
   const { userId } = useParams(); // Get the dynamic 'userId' from the URL
@@ -326,7 +326,7 @@ export default UserDetail;
 
 // src/App.js (updated)
 import React from 'react';
-import { Routes, Route, NavLink, Outlet } from 'react-router-dom';
+import { Routes, Route, NavLink, Outlet } from 'react-router';
 import Layout from './components/Layout';
 import NoMatch from './components/NoMatch';
 import UserDetail from './components/UserDetail'; // Import UserDetail
@@ -359,7 +359,7 @@ For the `UserDetail` component to render, the parent `Users` component must also
 ```javascript
 // src/App.js (partial - Users component updated)
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom'; // Import Outlet
+import { Link, Outlet } from 'react-router'; // Import Outlet
 
 const Users = () => {
   const dummyUsers = [
@@ -394,7 +394,7 @@ React Router 7 simplifies linking within nested routes by allowing "**Relative L
 ```javascript
 // src/App.js (partial - Users component updated for relative link)
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router';
 
 const Users = () => {
   const dummyUsers = [
@@ -431,7 +431,7 @@ While `Link` and `NavLink` offer declarative navigation, there are scenarios whe
 ```javascript
 // src/App.js (updated with programmatic navigation example)
 import React, { useState } from 'react';
-import { Routes, Route, NavLink, Outlet, useNavigate, useParams, Link } from 'react-router-dom';
+import { Routes, Route, NavLink, Outlet, useNavigate, useParams, Link } from 'react-router';
 import Layout from './components/Layout';
 import NoMatch from './components/NoMatch';
 
@@ -532,7 +532,7 @@ URLs can include query strings (also known as search parameters) after a `?` sym
 ```javascript
 // src/App.js (partial - Users component updated with search params)
 import React, { useState } from 'react';
-import { Link, Outlet, useSearchParams } from 'react-router-dom'; // Import useSearchParams
+import { Link, Outlet, useSearchParams } from 'react-router'; // Import useSearchParams
 
 const Users = () => {
   const dummyUsers = [
