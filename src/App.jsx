@@ -7,6 +7,7 @@ import Contact from './contact/Contact'
 import { Route, Routes } from 'react-router'
 import Layout from './Layout'
 import NoMatch from './NoMatch'
+import UserDetail from './users/UserDetail'
 
 const App = () => {
 	return (
@@ -17,10 +18,12 @@ const App = () => {
 					<Route element={<Layout />}>
 						{/* index attribute is used to mrk the route as index route or the default route */}
 						<Route index element={<Home />} />
-						<Route path='users' element={<Users />} />
+						<Route path='users' element={<Users />}>
+							<Route path=':userId' element={<UserDetail />} /> {/*/users/:userId */}
+						</Route>
 						<Route path='about' element={<About />} />
 						<Route path='contact' element={<Contact />} />
-						<Route path="*" element={<NoMatch />} /> {/* No Match Route */}
+						<Route path='*' element={<NoMatch />} /> {/* No Match Route */}
 					</Route>
 				</Routes>
 			</main>

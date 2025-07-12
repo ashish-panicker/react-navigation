@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './User.css'
+import { Link, Outlet } from 'react-router'
 
 const dummyUsers = [
 	{ id: '1', fullName: 'Alice Smith', email: 'alice@example.com' },
@@ -14,20 +15,20 @@ const dummyUsers = [
 
 const Users = () => {
 	// Local state for search term, not tied to URL search params
-	const [searchTerm, setSearchTerm] = useState('')
+	// const [searchTerm, setSearchTerm] = useState('')
 
-	const handleSearch = (event) => {
-		setSearchTerm(event.target.value)
-	}
+	// const handleSearch = (event) => {
+	// 	setSearchTerm(event.target.value)
+	// }
 
-	const filteredUsers = dummyUsers.filter((user) =>
-		user.fullName.toLowerCase().includes(searchTerm.toLocaleLowerCase())
-	)
+	// const filteredUsers = dummyUsers.filter((user) =>
+	// 	user.fullName.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+	// )
 
 	return (
 		<div className='users-container'>
 			<h2 className='users-title'>Our Users</h2>
-			<div className='search-bar'>
+			{/* <div className='search-bar'>
 				<input
 					type='text'
 					placeholder='Search users by name...'
@@ -35,21 +36,26 @@ const Users = () => {
 					onChange={handleSearch}
 					className='search-input'
 				/>
-			</div>
-			{filteredUsers.length > 0 ? (
-				<ul className='user-list'>
-					{filteredUsers.map((user) => (
-						<li key={user.id} className='user-item'>
-							<div className='user-info'>
-								<span className='user-name'>{user.fullName}</span>
-								<span className='user-email'>{user.email}</span>
-							</div>
-						</li>
-					))}
-				</ul>
+			</div> */}
+			{/* {filteredUsers.length > 0 ? (
+				
 			) : (
 				<p className='no-users-found'>No users found matching your search.</p>
-			)}
+			)} */}
+			<ul className='user-list'>
+				{dummyUsers.map((user) => (
+					<li key={user.id} className='user-item'>
+						<div className='user-info'>
+							<span className='user-name'>{user.fullName}</span>
+							{/* <span className='user-email'>{user.email}</span> */}
+							<span>
+								<Link to={user.id}>More...</Link>
+							</span>
+						</div>
+					</li>
+				))}
+				<Outlet />
+			</ul>
 		</div>
 	)
 }
