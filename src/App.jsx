@@ -6,6 +6,7 @@ import About from './about/About'
 import Contact from './contact/Contact'
 import { Route, Routes } from 'react-router'
 import Layout from './Layout'
+import NoMatch from './NoMatch'
 
 const App = () => {
 	return (
@@ -19,6 +20,7 @@ const App = () => {
 						<Route path='users' element={<Users />} />
 						<Route path='about' element={<About />} />
 						<Route path='contact' element={<Contact />} />
+						<Route path="*" element={<NoMatch />} /> {/* No Match Route */}
 					</Route>
 				</Routes>
 			</main>
